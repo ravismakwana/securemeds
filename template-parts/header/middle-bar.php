@@ -27,11 +27,16 @@ $header_menu_id = $menu_class->get_menu_id('asgard-main-menu');
                 ?>
             </div>
             <div class="col-xl-2 col-lg-3 col-md-3 col-sm-6 col-6 card_wishlist_area">
-	            <?php if (class_exists('WooCommerce')) { ?>
-                <div class="top-cart-contain position-relative">
-		            <?php asgard_mini_cart(); ?>
-                </div>
-                <?php } ?>
+	            <?php //if (class_exists('WooCommerce')) { ?>
+                <!-- <div class="top-cart-contain position-relative">
+		            <?php //asgard_mini_cart(); ?>
+                </div> -->
+                <?php //} ?>
+                <ul class="contact-group p-0 m-0">
+                    <li class="list-group-item"><a href="#" class="text-primary">Contact Dr Fox</a></li>
+                    <li class="list-group-item">T: <a href="tel:01172050198" class="text-decoration-none text-black">0117 2050198</a></li>
+                    <li class="list-group-item">E: <a href="mailto:info@doctorfox.co.uk" class="text-decoration-none text-black">info@doctorfox.co.uk</a></li>
+                </ul>
             </div>
         </div>
     </div>

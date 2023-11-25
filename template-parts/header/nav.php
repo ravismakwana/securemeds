@@ -16,7 +16,7 @@ global $woocommerce;
         <div class="mega-menu-title text-white bg-primary d-flex align-items-center position-relative">
             <!-- Offcanvas code is add on footer.php -->
             <a data-bs-toggle="offcanvas" href="#offcanvasAM" role="button" aria-controls="offcanvasAM"
-               class="canvas-btn d-none">
+               class="canvas-btn d-md-none d-block">
                 <svg width="30" height="30">
                     <use href="#icon-bar"></use>
                 </svg>
