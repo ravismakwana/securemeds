@@ -1,1 +1,1 @@
-# Asgard: Custom WordPress Theme #Secure Mds
+# Asgard: Custom WordPress Theme #SecureMeds
