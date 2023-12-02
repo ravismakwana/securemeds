@@ -33,9 +33,9 @@ $header_menu_id = $menu_class->get_menu_id('asgard-main-menu');
                 </div> -->
                 <?php //} ?>
                 <ul class="contact-group p-0 m-0">
-                    <li class="list-group-item"><a href="#" class="text-primary">Contact Dr Fox</a></li>
-                    <li class="list-group-item">T: <a href="tel:01172050198" class="text-decoration-none text-black">0117 2050198</a></li>
-                    <li class="list-group-item">E: <a href="mailto:info@doctorfox.co.uk" class="text-decoration-none text-black">info@doctorfox.co.uk</a></li>
+                    <li class="list-group-item"><a href="#" class="text-primary">Contact Securemedz</a></li>
+                    <li class="list-group-item">T: <a href="tel:0117xxxxxx" class="text-decoration-none text-black">0117 xxxxxxx</a></li>
+                    <li class="list-group-item">E: <a href="mailto:info@securemedz.com" class="text-decoration-none text-black">info@securemedz.com</a></li>
                 </ul>
             </div>
         </div>

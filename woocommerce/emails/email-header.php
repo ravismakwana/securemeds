@@ -64,7 +64,7 @@ if (!defined('ABSPATH')) {
                                                     <tr>
                                                         <td valign="top">
                                                             <h2 id="site_title">
-                                                                ArrowMeds.com <?php //echo $email_heading; ?>
+                                                                securemedz.com <?php //echo $email_heading; ?>
                                                                 <small>*** PLEASE PRINT RECEIPT OUT AND RETAIN IT FOR FUTURE REFERENCE ***</small>
                                                             </h2>
                                                             <table width="100%" id="bg-cyan-top">

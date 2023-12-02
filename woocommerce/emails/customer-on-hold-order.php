@@ -58,7 +58,7 @@ do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_
             </h6>
         </div>
         <div class="android_icon">
-            <a href="<?php echo home_url(), '/arrowmeds-app/'; ?>" target="_blank">
+            <a href="<?php echo home_url(), '/securemedz-app/'; ?>" target="_blank">
                 <img src="<?php echo home_url().'/wp-content/uploads/2023/06/android-app.png'; ?>" alt="Android App"
                      width="120" height="60">
             </a>
@@ -69,17 +69,17 @@ do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_
 		<?php _e( 'Average normal shipping through EMS time is 15- 22 days, please (Delivery may be take up to 30 days from date of dispatch, due to if any disruption in postal services due to weather issue or natural disaster).', 'woocommerce' ); // phpcs:ignore WordPress.XSS.EscapeOutput ?>
     </p>
     <p style="text-align: left;">
-		<?php _e( 'You can send your prescription to <a href="mailto:admin@arrowmeds.com">admin@arrowmeds.com</a> also. (JPEG, PDF file supported)', 'woocommerce' ); // phpcs:ignore WordPress.XSS.EscapeOutput ?>
+		<?php _e( 'You can send your prescription to <a href="mailto:admin@securemedz.com">admin@securemedz.com</a> also. (JPEG, PDF file supported)', 'woocommerce' ); // phpcs:ignore WordPress.XSS.EscapeOutput ?>
     </p>
     <p style="text-align: left;">
-		<?php _e( 'This email has been sent to you, as a one-time mailing, as a result of an order being placed on the website <a href="' . get_home_url() . '" target="_blank">www.arrowmeds.com</a> and the person placing the order entering the email address. If you have any questions or concerns about this, please contact our Customer Care immediately.', 'woocommerce' ); // phpcs:ignore WordPress.XSS.EscapeOutput ?>
+		<?php _e( 'This email has been sent to you, as a one-time mailing, as a result of an order being placed on the website <a href="' . get_home_url() . '" target="_blank">www.securemedz.com</a> and the person placing the order entering the email address. If you have any questions or concerns about this, please contact our Customer Care immediately.', 'woocommerce' ); // phpcs:ignore WordPress.XSS.EscapeOutput ?>
     </p>
     <p style="text-align: left;">
-		<?php _e( 'In case of any trouble please email us at <a href="mailto:support@arrowmeds.com">support@arrowmeds.com</a> or open support Ticket', 'woocommerce' ); // phpcs:ignore WordPress.XSS.EscapeOutput ?>
+		<?php _e( 'In case of any trouble please email us at <a href="mailto:support@securemedz.com">support@securemedz.com</a> or open support Ticket', 'woocommerce' ); // phpcs:ignore WordPress.XSS.EscapeOutput ?>
     </p>
     <p style="text-align: left;">
         Warm Regards,<br/>
-        Team ArrowMeds
+        Team securemedz
     </p>
 <?php
 
