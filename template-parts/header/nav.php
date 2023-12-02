@@ -106,7 +106,7 @@ global $woocommerce;
 							$register_link = wc_get_page_permalink( 'myaccount' );
 						}
 					} else {
-						$login_link    = wp_login_url( get_home_url() );
+						$login_link    = get_permalink( wc_get_page_id( 'myaccount' ) );
 						$active_signup = get_site_option( 'registration', 'none' );
 						$active_signup = apply_filters( 'wpmu_active_signup', $active_signup );
 						if ( $active_signup != 'none' ) {
@@ -160,7 +160,10 @@ global $woocommerce;
                             <li><a href="<?php echo esc_url( $logout_link ); ?>" class="dropdown-item">Logout</a></li>
 	                        <?php
                         } else {
-	                        $login_link    = wp_login_url( get_home_url() );
+	                        if ( get_option( 'woocommerce_enable_myaccount_registration' ) === 'yes' ) {
+		                        $register_link = wc_get_page_permalink( 'myaccount' );
+	                        }
+	                        $login_link    = get_permalink( wc_get_page_id( 'myaccount' ) );
 	                        $active_signup = get_site_option( 'registration', 'none' );
 	                        $active_signup = apply_filters( 'wpmu_active_signup', $active_signup );
 	                        if ( $active_signup != 'none' ) {
