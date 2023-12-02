@@ -55,7 +55,7 @@ do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_
 </p>
 <p>
 Warm Regards,<br/>
-Team ArrowMeds
+Team securemedz
 </p>
 <div >
 									<h6 style="text-align: center; font-size: 16px; margin-top: 20px; margin-bottom: 20px;">
@@ -64,13 +64,13 @@ Team ArrowMeds
 								</div>
 <div id="email_app_button" style="text-align: center; display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
 								<div class="android_icon">
-									<a href="https://play.google.com/store/apps/details?id=actizameds.arrow.meds.arrowmeds" target="_blank">
-										<img src="https://www.arrowmeds.com/wp-content/uploads/2022/07/d11_playstore.webp" alt="Android App" width="120" height="60">
+									<a href="https://play.google.com/store/apps/details?id=actizameds.arrow.meds.securemedz" target="_blank">
+										<img src="https://www.securemedz.com/wp-content/uploads/2022/07/d11_playstore.webp" alt="Android App" width="120" height="60">
 									</a>
 								</div>
 								<div class="iso_icon">
 									<a href="#">
-										<img src="https://www.arrowmeds.com/wp-content/uploads/2022/07/d11_appstore.webp" alt="ISO App" width="120" height="60">
+										<img src="https://www.securemedz.com/wp-content/uploads/2022/07/d11_appstore.webp" alt="ISO App" width="120" height="60">
 									</a>
 								</div>
 							</div>

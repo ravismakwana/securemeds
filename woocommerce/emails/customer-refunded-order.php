@@ -65,7 +65,7 @@ do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_
 </p>
 <p>
 Warm Regards,<br/>
-Team ArrowMeds
+Team securemedz
 </p>
 <?php
 

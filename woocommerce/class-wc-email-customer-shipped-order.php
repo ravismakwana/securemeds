@@ -74,7 +74,7 @@ if ( ! class_exists( 'WC_Email_Customer_Shipped_Order', false ) ) :
 				</div>
 				<div id="shipped_header_down"  style="display: flex; align-item: center; text-align: right;">
 					<strong>Whatsapp : </strong>
-					<a href="https://api.whatsapp.com/send?phone=18779251112&text=Hi,%20Arrowmeds,%20Team" style="text-decoration: none;">+1(877) 925-1112</a>
+					<a href="https://api.whatsapp.com/send?phone=18779251112&text=Hi,%20securemedz,%20Team" style="text-decoration: none;">+1(877) 925-1112</a>
 				</div>
 			</div>';
 			return __( $order_contact, 'woocommerce' );

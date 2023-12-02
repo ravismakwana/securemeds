@@ -81,6 +81,7 @@ add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_ratin
 add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_price', 9 );
 
 add_filter( 'woocommerce_product_get_rating_html', 'custom_add_star_rating_class', 10, 3 );
+add_action('customize_register', 'custom_theme_settings');
 function custom_add_star_rating_class( $html, $rating, $count ) {
 
 	if ( 0 < $rating ) {
@@ -170,4 +171,99 @@ function asgard_wc_display_item_meta( $item, $args = array() ) {
 	} else {
 		return $html;
 	}
+}
+
+function custom_theme_settings($wp_customize) {
+	// Create section for images
+	$wp_customize->add_section('custom_images_section', array(
+		'title' => __('Custom Images', 'text-domain'),
+		'priority' => 30,
+	));
+
+	// Image 1 setting and control
+	$wp_customize->add_setting('custom_image_1', array(
+		'default' => '',
+		'type' => 'option',
+		'sanitize_callback' => 'esc_url_raw',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'custom_image_1', array(
+		'label' => __('Custom Image 1', 'text-domain'),
+		'section' => 'custom_images_section',
+		'settings' => 'custom_image_1',
+	)));
+
+	// Image 2 setting and control
+	$wp_customize->add_setting('custom_image_2', array(
+		'default' => '',
+		'type' => 'option',
+		'sanitize_callback' => 'esc_url_raw',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'custom_image_2', array(
+		'label' => __('Custom Image 2', 'text-domain'),
+		'section' => 'custom_images_section',
+		'settings' => 'custom_image_2',
+	)));
+
+	// Image 3 setting and control
+	$wp_customize->add_setting('custom_image_3', array(
+		'default' => '',
+		'type' => 'option',
+		'sanitize_callback' => 'esc_url_raw',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'custom_image_3', array(
+		'label' => __('Custom Image 3', 'text-domain'),
+		'section' => 'custom_images_section',
+		'settings' => 'custom_image_3',
+	)));
+
+	// Create section for links
+	$wp_customize->add_section('custom_links_section', array(
+		'title' => __('Custom Links', 'text-domain'),
+		'priority' => 30,
+	));
+
+	// Link 1 setting and control
+	$wp_customize->add_setting('custom_link_1', array(
+		'default' => '',
+		'type' => 'option',
+		'sanitize_callback' => 'esc_url_raw',
+	));
+
+	$wp_customize->add_control('custom_link_1', array(
+		'label' => __('Custom Link 1', 'text-domain'),
+		'section' => 'custom_links_section',
+		'type' => 'text',
+		'settings' => 'custom_link_1',
+	));
+
+	// Link 2 setting and control
+	$wp_customize->add_setting('custom_link_2', array(
+		'default' => '',
+		'type' => 'option',
+		'sanitize_callback' => 'esc_url_raw',
+	));
+
+	$wp_customize->add_control('custom_link_2', array(
+		'label' => __('Custom Link 2', 'text-domain'),
+		'section' => 'custom_links_section',
+		'type' => 'text',
+		'settings' => 'custom_link_2',
+	));
+
+	// Link 3 setting and control
+	$wp_customize->add_setting('custom_link_3', array(
+		'default' => '',
+		'type' => 'option',
+		'sanitize_callback' => 'esc_url_raw',
+	));
+
+	$wp_customize->add_control('custom_link_3', array(
+		'label' => __('Custom Link 3', 'text-domain'),
+		'section' => 'custom_links_section',
+		'type' => 'text',
+		'settings' => 'custom_link_3',
+	));
 }

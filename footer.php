@@ -19,7 +19,7 @@
 //					?>
 <!--                </div>-->
 <!--                <div class="col-12 col-md-6 d-flex align-items-center justify-content-center justify-content-lg-end my-1">-->
-<!--                    <a href="--><?php //// echo home_url( '/arrowmeds-app/' ); ?><!--">-->
+<!--                    <a href="--><?php //// echo home_url( '/securemedz-app/' ); ?><!--">-->
 <!--                        <svg width="180" height="53.333">-->
 <!--                            <use href="#app-logo"></use>-->
 <!--                        </svg>-->
@@ -54,7 +54,7 @@
 <!--                <div class="social-links col-sm-6 py-2 d-flex align-items-center">-->
 <!--                    <ul class="list-inline m-0 p-0 text-center text-sm-start w-100">-->
 <!--                        <li class="list-inline-item">-->
-<!--                            <a href="https://www.facebook.com/arrowmedsus/" target="_blank"-->
+<!--                            <a href="https://www.facebook.com/securemedzus/" target="_blank"-->
 <!--                               class="bg-primary p-1 rounded-2 lh-sm">-->
 <!--                                <svg width="15" height="15" fill="#fff">-->
 <!--                                    <use href="#icon-facebook"></use>-->
@@ -62,7 +62,7 @@
 <!--                            </a>-->
 <!--                        </li>-->
 <!--                        <li class="list-inline-item">-->
-<!--                            <a href="https://twitter.com/arrowmeds" target="_blank"-->
+<!--                            <a href="https://twitter.com/securemedz" target="_blank"-->
 <!--                               class="bg-primary p-1 rounded-2 lh-sm">-->
 <!--                                <svg width="15" height="15" fill="#fff">-->
 <!--                                    <use href="#icon-twitter"></use>-->
@@ -77,7 +77,7 @@
 <!--                            </a>-->
 <!--                        </li>-->
 <!--                        <li class="list-inline-item">-->
-<!--                            <a href="https://www.instagram.com/arrowmedsus/" target="_blank"-->
+<!--                            <a href="https://www.instagram.com/securemedzus/" target="_blank"-->
 <!--                               class="bg-primary p-1 rounded-2 lh-sm">-->
 <!--                                <svg width="15" height="15" fill="#fff">-->
 <!--                                    <use href="#icon-instagram"></use>-->
@@ -97,8 +97,11 @@
     <div class="footer-copyright bg-primary text-center text-white text-opacity-75 py-2">
         <div class="container">
             <div class="row">
-                <div class="col-12 fs-12">Copyright © <?php echo date( 'Y' ); ?> Arrowmeds.com All Rights Reserved.
-                </div>
+                <?php
+                $domain = get_option('siteurl'); //or home
+                $domain = str_replace('https://www.', '', $domain);
+                ?>
+                <div class="col-12 fs-12">Copyright © <?php echo date( 'Y' ); ?> <?php echo ucfirst($domain); ?> All Rights Reserved.</div>
             </div>
         </div>
     </div>

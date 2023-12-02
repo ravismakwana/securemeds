@@ -45,9 +45,10 @@ class Asgard_Woocommerce {
 
 
 		add_filter( 'woocommerce_variable_price_html', [ $this, 'asgard_custom_variation_price' ], 10, 2 );
-		add_action( 'woocommerce_single_product_summary', [ $this, 'woocommerce_add_attributes' ], 21 );
+// 		add_action( 'woocommerce_single_product_summary', [ $this, 'woocommerce_add_attributes' ], 21 );
 		add_action( 'woocommerce_after_single_product_summary', [ $this, 'display_variation_in_table_format' ], 5 );
-		add_action( 'woocommerce_share', [ $this, 'product_share_single_product_page' ], 10 );
+// 		add_action( 'woocommerce_share', [ $this, 'product_share_single_product_page' ], 10 );
+        add_action( 'woocommerce_share', [ $this, 'product_logos_after_meta' ], 10 );
 		add_action( 'wp_ajax_nopriv_woocommerce_add_variation_to_cart', [
 			$this,
 			'asgard_add_variation_to_cart_ajax'
@@ -163,7 +164,7 @@ class Asgard_Woocommerce {
 		?>
         <div class="mini-cart m-0 text-start">
             <div data-hover="dropdown" class="basket fs-14 p-0 d-flex align-items-center justify-content-end">
-                <a href="https://api.whatsapp.com/send?phone=18779251112&text=Hi,%20Arrowmeds,%20Team" target="_blank"
+                <a href="https://api.whatsapp.com/send?phone=18779251112&text=Hi,%20securemedz,%20Team" target="_blank"
                    class="whatsapp-icon d-block d-sm-block d-md-none d-lg-none d-xl-none d-xxl-none me-3">
                     <svg height="25" width="25" fill="#42D741">
                         <use href="#icon-whatsapp"></use>
@@ -480,17 +481,17 @@ class Asgard_Woocommerce {
                 <table class="product_type table align-middle table-borderless mb-0">
                     <tbody>
                     <tr>
-                        <td class="p_image d-lg-table-cell d-md-block d-block">
+<!--                         <td class="p_image d-lg-table-cell d-md-block d-block">
                             <div class="product_img">
                                 <a class="thumbnail" href="#">
-                                    <img src="<?php echo $product_variations[0]['image']['gallery_thumbnail_src']; ?>"
-                                         title="<?php echo $product_variations[0]['image']['title']; ?>"
-                                         alt="<?php echo $product_variations[0]['image']['alt']; ?>"
+                                    <img src="<?php //echo $product_variations[0]['image']['gallery_thumbnail_src']; ?>"
+                                         title="<?php //echo $product_variations[0]['image']['title']; ?>"
+                                         alt="<?php //echo $product_variations[0]['image']['alt']; ?>"
                                          class="img-fluid img-thumbnail mx-auto d-block border border-primary border-opacity-25"
-                                         width="<?php echo $product_variations[0]['image']['gallery_thumbnail_src_w']; ?>">
+                                         width="<?php //echo $product_variations[0]['image']['gallery_thumbnail_src_w']; ?>">
                                 </a>
                             </div>
-                        </td>
+                        </td> -->
                         <td class="block d-lg-table-cell d-md-block d-block px-0">
                             <table class="text-center table footable footable-1 table-bordered table-hover border border-primary border-opacity-25"
                                    data-toggle-column="last" product-id="<?php echo $id; ?>">
@@ -638,6 +639,63 @@ class Asgard_Woocommerce {
 		<?php
 	}
 
+    public function product_logos_after_meta() {
+        // Retrieve image URLs
+        $image_1_url = esc_url(get_theme_mod('custom_image_1'));
+        $image_2_url = esc_url(get_theme_mod('custom_image_2'));
+        $image_3_url = esc_url(get_theme_mod('custom_image_3'));
+
+        // Retrieve link URLs
+        $link_1_url = esc_url(get_theme_mod('custom_link_1'));
+        $link_2_url = esc_url(get_theme_mod('custom_link_2'));
+        $link_3_url = esc_url(get_theme_mod('custom_link_3'));
+
+        ?>
+        <div class="product-page-logos d-flex align-items-center gap-3 mt-3">
+            <?php if($image_1_url) {
+                ?>
+                <a href="<?php echo $link_1_url; ?>">
+                    <img src="<?php echo $image_1_url; ?>" alt="Logos" width="90">
+                </a>
+                <?php
+            }else {
+                ?>
+                <a href="#">
+                    <img src="<?php echo get_home_url(); ?>/wp-content/uploads/2023/12/logo-care-quality-commission-regulatedby.svg" alt="Logos" width="90">
+                </a>
+                <?php
+            }
+            if($image_2_url) {
+                ?>
+                <a href="<?php echo $link_2_url; ?>">
+                    <img src="<?php echo $image_2_url; ?>" alt="Logos" width="76">
+                </a>
+                <?php
+            }else {
+                ?>
+                <a href="#">
+                    <img src="<?php echo get_home_url(); ?>/wp-content/uploads/2023/12/1124326.png" alt="Logos" width="76">
+                </a>
+                <?php
+            }
+            if($image_3_url) {
+                ?>
+                <a href="<?php echo $link_3_url; ?>">
+                    <img src="<?php echo $image_3_url; ?>" alt="Logos" width="76">
+                </a>
+                <?php
+            }else {
+                ?>
+                <a href="#">
+                    <img src="<?php echo get_home_url(); ?>/wp-content/uploads/2023/12/trusted-shops-rating.png" alt="Logos" width="76">
+                </a>
+                <?php
+            }
+            ?>
+        </div>
+        <?php
+    }
+
 	public function asgard_add_variation_to_cart_ajax() {
 		// Add variation product to the cart using ajax
 
@@ -730,7 +788,7 @@ class Asgard_Woocommerce {
 
 	public function asgard_woocommerce_show_product_images() {
 		global $product;
-		echo "<div class='col-lg-4 mt-4 order-2 order-lg-1 d-none d-lg-block single-product-image'>" . $product->get_image() . "</div>";
+		echo "<div class='col-lg-4 mt-4 order-1 order-lg-2 d-none d-lg-block single-product-image'>" . $product->get_image() . "</div>";
 	}
 
 	public function enable_gutenberg_for_product_page( $can_edit, $post_type ) {
@@ -1311,7 +1369,7 @@ class Asgard_Woocommerce {
         return 'Arrow Meds';
     }
     public function asgard_wp_mail_from( $email ){
-        return 'admin@arrowmeds.com';
+        return 'admin@securemedz.com';
     }
     public function asgard_change_cvc_cvv_text( $default_fields, $id ){
         $search = 'Card code';
@@ -1429,7 +1487,7 @@ class Asgard_Woocommerce {
         return $hint;
     }
     public function asgard_admin_email_recipient_filter_function($recipient, $object){
-        $recipient = $recipient . ', admin@arrowmeds.com';
+        $recipient = $recipient . ', admin@securemedz.com';
         return $recipient;
     }
 
@@ -1495,7 +1553,7 @@ class Asgard_Woocommerce {
                 }?>
                 <p>
                     <b>Thanks for your time,</b><br/>
-                    Team ArrowMeds
+                    Team securemedz
                 </p>
                 <p><b>Please note:</b> This email is sent automatically, so you may have received this review invitation before the arrival of your package or service. In this case, you are welcome to wait with writing your review until your package or service arrives.</p>
                 <p></p>
@@ -1525,7 +1583,7 @@ class Asgard_Woocommerce {
 			    <?php echo do_shortcode( '[post-views]' ).'<div class="ms-2 viewd"> Viewed</div>'; ?>
             </div>
 			<div class="woocommerce-product-rating">
-			    <a class="d-flex align-items-center text-primary lh-1" href="https://tawk.to/arrowmeds" target="_blank">
+			    <a class="d-flex align-items-center text-primary lh-1" href="https://tawk.to/securemedz" target="_blank">
                     <svg width="20" height="20" fill="var(--bs-primary)" class="me-2"><use href="#icon-chat"></use></svg>
 					Talk to Expert
 				</a>
@@ -1545,24 +1603,39 @@ class Asgard_Woocommerce {
 // 		echo '<pre>';
 // 		print_r($product);
 // 		echo '</pre>';
- 		$user = get_avatar(get_the_author_meta('ID'), 30, '', '', ['class'=>'rounded-pill']);
+ 		$user = get_avatar(get_the_author_meta('ID'), 70, '', '');
 		$modifiedDate = $product->get_date_modified()->date('d/m/Y');
+        $author_id = get_the_author_meta('ID');
+        $author_meta_description = get_the_author_meta('description', $author_id);
 		?>
-		<div class="product-author product-author d-flex align-items-center flex-wrap mb-3 p-3 border border-secondary border-opacity-50 rounded-4">
-			<div class="last-updated w-100 fs-12">
-				<span>Last Updated on </span>
-				<time><?php echo $modifiedDate; ?></time>
-			</div>
-			<div class="reviwed me-2 fs-6 d-flex align-items-center lh-1">
-				<svg class="me-1" width="20" height="20" fill="var(--bs-primary)"><use href="#icon-circle-check"></use></svg>
-				 Medically Reviewed by
-			</div>
-			<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" class="author-profile d-inline-flex align-items-center bg-primary-subtle rounded-pill text-decoration-none text-primary pe-3 text-capitalize">
-				<div class="author-asgard">
-					<?php echo $user; ?>
-				</div>
-				<span class="ms-2 name"><?php the_author(); ?></span>
-			</a>
+		<div class="product-author product-author d-flex align-items-center mb-3 p-3 border border-secondary border-opacity-50 rounded-4 bg-primary-subtle">
+			<div class="flex-shrink-0">
+                <?php echo $user; ?>
+            </div>
+            <div class="flex-grow-1 ms-3">
+                <div class="last-updated w-100 fs-12">
+                    <span>Last Updated on </span>
+                    <time><?php echo $modifiedDate; ?></time>
+                </div>
+                <p class="my-2 name text-primary fw-bold"><?php the_author(); ?></p>
+                <?php 
+                if($author_meta_description) {
+                    echo $author_meta_description;
+                }else {
+                    echo 'No meta description available for this author.';
+                }  ?>
+            </div>
+		</div>
+        <div class="product-references mb-3 p-3 border border-secondary border-opacity-50 rounded-4 bg-primary-subtle">
+			<div class="flex-shrink-0">
+                <h3 class="mb-2">References</h3>
+                <ul class="m-0">
+                    <li class="pb-2">Bayer, 2021, Norgeston Tablets: Summary of Product Characteristics, accessed 17 May 2022</li>
+                    <li class="pb-2">A second itemBNF/NICE, 2017, LEVONORGESTREL, accessed 17 May 2022</li>
+                    <li class="pb-2">A third itemBNF/NICE, 2017, LEVONORGESTREL, accessed 17 May 2022</li>
+                    <li class="pb-2">A fourth itemDr W. Jones & the Breastfeeding Network, 2021, Contraception and Breastfeeding, accessed 17 May 2022</li>
+                </ul>
+            </div>
 		</div>
 		<?php
     }
@@ -1699,7 +1772,7 @@ class Asgard_Woocommerce {
 			</a>
 		</div>
 		<div class="amp_support_right">
-			<a href="https://api.whatsapp.com/send?phone=18779251112&text=Hi,%20Arrowmeds,%20Team" target="_blank">
+			<a href="https://api.whatsapp.com/send?phone=18779251112&text=Hi,%20securemedz,%20Team" target="_blank">
 				<p>
 					+1(877) 925-1112
 				</p>

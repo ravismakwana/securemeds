@@ -33,7 +33,7 @@ $header_menu_id = $menu_class->get_menu_id( 'asgard-main-menu' );
                         </li>
                         <li>
                             <div class="track-btn">
-                                <a href="https://arrowmeds.aftership.com/" target="_blank"
+                                <a href="https://securemedz.aftership.com/" target="_blank"
                                    class="badge text-bg-primary fs-14 text-decoration-none rounded-pill fw-normal">Track
                                     Order</a>
                             </div>
@@ -58,7 +58,7 @@ $header_menu_id = $menu_class->get_menu_id( 'asgard-main-menu' );
                                           fill="#fff"></path>
                                 </g>
                             </svg>
-                            <strong><a href="https://api.whatsapp.com/send?phone=18779251112&amp;text=Hi,%20Arrowmeds,%20Team"
+                            <strong><a href="https://api.whatsapp.com/send?phone=18779251112&amp;text=Hi,%20securemedz,%20Team"
                                        class="text-decoration-none fs-14 text-black">&nbsp;187-7925-1112 <span
                                             class="d-none d-sm-none d-md-none d-lg-inline-block">(Click to chat)</span></a></strong>
                         </p>

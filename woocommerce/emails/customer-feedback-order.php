@@ -46,7 +46,7 @@ wc_get_template($template, array('email_heading' => $email_heading));
 </p>
 <p>
     <b>Thanks for your time,</b><br/>
-    Team ArrowMeds
+    Team securemedz
 </p>
 <p><b>Please note:</b> This email is sent automatically, so you may have received this review invitation before the arrival of your package or service. In this case, you are welcome to wait with writing your review until your package or service arrives.</p>
 <p></p>

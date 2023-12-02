@@ -57,7 +57,7 @@ do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_
 <p><?php esc_html_e( 'Thanks for reading.', 'woocommerce' ); ?></p>
 <p>
 Warm Regards,<br/>
-Team ArrowMeds
+Team securemedz
 </p>
 <?php
 

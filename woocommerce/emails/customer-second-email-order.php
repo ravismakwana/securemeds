@@ -41,7 +41,7 @@ echo wpautop($content_html);
 ?>
     <p style="text-align: left;">
         Warm Regards,<br/>
-        Team ArrowMeds
+        Team securemedz
     </p>
     <p><b>Please note:</b> This email is sent automatically, so you may have received this review invitation before the
         arrival of your package or service. In this case, you are welcome to wait with writing your review until your
