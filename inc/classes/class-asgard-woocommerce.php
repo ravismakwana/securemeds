@@ -45,10 +45,11 @@ class Asgard_Woocommerce {
 
 
 		add_filter( 'woocommerce_variable_price_html', [ $this, 'asgard_custom_variation_price' ], 10, 2 );
-// 		add_action( 'woocommerce_single_product_summary', [ $this, 'woocommerce_add_attributes' ], 21 );
+		add_action( 'woocommerce_single_product_summary', [ $this, 'woocommerce_add_attributes' ], 21 );
 		add_action( 'woocommerce_after_single_product_summary', [ $this, 'display_variation_in_table_format' ], 5 );
 // 		add_action( 'woocommerce_share', [ $this, 'product_share_single_product_page' ], 10 );
         add_action( 'woocommerce_share', [ $this, 'product_logos_after_meta' ], 10 );
+		add_action( 'woocommerce_after_single_product', [ $this, 'single_product_order_proccess' ], 10 );
 		add_action( 'wp_ajax_nopriv_woocommerce_add_variation_to_cart', [
 			$this,
 			'asgard_add_variation_to_cart_ajax'
@@ -151,7 +152,7 @@ class Asgard_Woocommerce {
         add_action( 'asgard_add_every_seven_days', [ $this, 'asgard_every_seven_days_event_func' ], 10 );
         add_action( 'woocommerce_single_product_summary', [ $this, 'asgard_add_view_counter' ], 13 );
         add_filter( 'woocommerce_order_item_name', [ $this, 'asgard_add_mg_attribute_in_order_email_' ], 10, 2 );
-        add_action( 'woocommerce_after_single_product_summary', [ $this, 'asgard_single_product_author' ], 9 );
+        add_action( 'single_product_author_reference', [ $this, 'asgard_single_product_author' ], 10 );
         add_action( 'woocommerce_review_order_before_payment', [ $this, 'asgard_woocommerce_review_order_before_payment' ], 10 );
         add_action( 'kt_amp_build_product', [ $this, 'asgard_display_variation_in_table_format_amp' ], 10 );
         add_action( 'kt_amp_header_after', [ $this, 'asgard_amp_search_for_product' ], 10 );
@@ -493,20 +494,20 @@ class Asgard_Woocommerce {
                             </div>
                         </td> -->
                         <td class="block d-lg-table-cell d-md-block d-block px-0">
-                            <table class="text-center table footable footable-1 table-bordered table-hover border border-primary border-opacity-25"
+                            <table class="text-center table footable footable-1 table-hover border-primary border-opacity-25"
                                    data-toggle-column="last" product-id="<?php echo $id; ?>">
                                 <thead>
                                 <tr class="row-title">
                                     <th colspan="5" class="bg-primary-subtle"><h2
-                                                class="variation-product-title h5 mb-0 py-1 text-primary"><?php echo $product->get_title() . ' - ' . $attribute_name; ?></h2>
+                                                class="variation-product-title h5 mb-0 py-1 text-left fs-6 fw-bold"><?php echo $product->get_title() . ' - ' . $attribute_name; ?></h2>
                                     </th>
                                 </tr>
                                 <tr class="footable-header">
-                                    <th class="footable-first-visible text-primary"><?php echo $attribute_name; ?></th>
-                                    <th class="text-primary">Price</th>
-                                    <th class="hide-mobile text-primary d-none d-lg-table-cell">Price/unit</th>
-                                    <th class="text-primary">Quantity</th>
-                                    <th class="footable-last-visible text-primary">Add To Cart</th>
+                                    <th class="footable-first-visible"><?php echo $attribute_name; ?></th>
+                                    <th class="">Price</th>
+                                    <th class="hide-mobile d-none d-lg-table-cell">Price/unit</th>
+                                    <th class="">Quantity</th>
+                                    <th class="footable-last-visible">Add To Cart</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -644,6 +645,7 @@ class Asgard_Woocommerce {
         $image_1_url = esc_url(get_theme_mod('custom_image_1'));
         $image_2_url = esc_url(get_theme_mod('custom_image_2'));
         $image_3_url = esc_url(get_theme_mod('custom_image_3'));
+		echo $image_1_url;
 
         // Retrieve link URLs
         $link_1_url = esc_url(get_theme_mod('custom_link_1'));
@@ -651,7 +653,7 @@ class Asgard_Woocommerce {
         $link_3_url = esc_url(get_theme_mod('custom_link_3'));
 
         ?>
-        <div class="product-page-logos d-flex align-items-center gap-3 mt-3">
+        <div class="product-page-logos d-flex align-items-center gap-3 mt-3 123">
             <?php if($image_1_url) {
                 ?>
                 <a href="<?php echo $link_1_url; ?>">
@@ -661,7 +663,7 @@ class Asgard_Woocommerce {
             }else {
                 ?>
                 <a href="#">
-                    <img src="<?php echo get_home_url(); ?>/wp-content/uploads/2023/12/logo-care-quality-commission-regulatedby.svg" alt="Logos" width="90">
+                    <img src="https://www.securemedz.com/wp-content/uploads/2023/12/logo-care-quality-commission-regulatedby.svg" alt="Logos" width="90">
                 </a>
                 <?php
             }
@@ -674,7 +676,7 @@ class Asgard_Woocommerce {
             }else {
                 ?>
                 <a href="#">
-                    <img src="<?php echo get_home_url(); ?>/wp-content/uploads/2023/12/1124326.png" alt="Logos" width="76">
+                    <img src="https://www.securemedz.com/wp-content/uploads/2023/12/1124326.png" alt="Logos" width="76">
                 </a>
                 <?php
             }
@@ -687,7 +689,7 @@ class Asgard_Woocommerce {
             }else {
                 ?>
                 <a href="#">
-                    <img src="<?php echo get_home_url(); ?>/wp-content/uploads/2023/12/trusted-shops-rating.png" alt="Logos" width="76">
+                    <img src="https://www.securemedz.com/wp-content/uploads/2023/12/trusted-shops-rating.png" alt="Logos" width="76">
                 </a>
                 <?php
             }
@@ -695,6 +697,60 @@ class Asgard_Woocommerce {
         </div>
         <?php
     }
+	
+	public function single_product_order_proccess() {
+		?>
+        <div class="order-process mb-4">
+            <div class="heading-main">
+                <hr>
+                <h2 class="heading">The order process</h2>
+            </div>
+            <div class="middle-blocks-wrap d-flex gap-2">
+                <div class="middle-block-inner text-center">
+                    <div class="img-wrap mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="65" width="65" viewBox="0 0 576 512" fill="#787878"><path d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64H240l-10.7 32H160c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H346.7L336 416H512c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64zM512 64V288H64V64H512z"/></svg>
+                    </div>
+                    <p class="mb-0"><a href="#">Answer short medical questionnaire</a></p>
+                </div>
+                <div class="middle-block-inner text-center">
+                    <div class="img-wrap mb-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="65" width="65" viewBox="0 0 576 512" fill="#787878"><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96zM252 160c0 11 9 20 20 20h44v44c0 11 9 20 20 20s20-9 20-20V180h44c11 0 20-9 20-20s-9-20-20-20H356V96c0-11-9-20-20-20s-20 9-20 20v44H272c-11 0-20 9-20 20z"/></svg>
+                    </div>
+                    <p class="mb-0"><a href="#">Choose medication, register, and pay</a></p>
+                </div>
+                <div class="middle-block-inner text-center">
+                    <div class="img-wrap mb-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="65" width="65" viewBox="0 0 576 512" fill="#787878"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-96 55.2C54 332.9 0 401.3 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7c0-81-54-149.4-128-171.1V362c27.6 7.1 48 32.2 48 62v40c0 8.8-7.2 16-16 16H336c-8.8 0-16-7.2-16-16s7.2-16 16-16V424c0-17.7-14.3-32-32-32s-32 14.3-32 32v24c8.8 0 16 7.2 16 16s-7.2 16-16 16H256c-8.8 0-16-7.2-16-16V424c0-29.8 20.4-54.9 48-62V304.9c-6-.6-12.1-.9-18.3-.9H178.3c-6.2 0-12.3 .3-18.3 .9v65.4c23.1 6.9 40 28.3 40 53.7c0 30.9-25.1 56-56 56s-56-25.1-56-56c0-25.4 16.9-46.8 40-53.7V311.2zM144 448a24 24 0 1 0 0-48 24 24 0 1 0 0 48z"/></svg>
+                    </div>
+                    <p class="mb-0"><a href="#">securemedz issues prescription online</a></p>
+                </div>
+                <div class="middle-block-inner text-center">
+                    <div class="img-wrap mb-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="65" width="130" viewBox="0 0 576 512" fill="#787878"><path d="M64 104v88h96V96H72c-4.4 0-8 3.6-8 8zm482 88L465.1 96H384v96H546zm-226 0V96H224v96h96zM592 384H576c0 53-43 96-96 96s-96-43-96-96H256c0 53-43 96-96 96s-96-43-96-96H48c-26.5 0-48-21.5-48-48V104C0 64.2 32.2 32 72 32H192 352 465.1c18.9 0 36.8 8.3 49 22.8L625 186.5c9.7 11.5 15 26.1 15 41.2V336c0 26.5-21.5 48-48 48zm-64 0a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM160 432a48 48 0 1 0 0-96 48 48 0 1 0 0 96z"/></svg>
+                    </div>
+                    <p class="mb-0"><a href="#">Pharmacy team post medication direct</a></p>
+                </div>
+            </div>
+            <div class="last-green-devider mt-4">
+                <hr>
+                <div class="green-devider-inner d-flex">
+                    <a href="#" class="flex-grow-1 flex-shrink-1 d-flex justify-content-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="40" width="40" viewBox="0 0 512 512" fill="#36af77"><path d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                    </a>
+                    <a href="#" class="flex-grow-1 flex-shrink-1 d-flex justify-content-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="40" width="40" viewBox="0 0 512 512" fill="#36af77"><path d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                    </a>
+                    <a href="#" class="flex-grow-1 flex-shrink-1 d-flex justify-content-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="40" width="40" viewBox="0 0 512 512" fill="#36af77"><path d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                    </a>
+                    <a href="#" class="flex-grow-1 flex-shrink-1 d-flex justify-content-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="40" width="40" viewBox="0 0 512 512" fill="#36af77"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <?php
+	}
 
 	public function asgard_add_variation_to_cart_ajax() {
 		// Add variation product to the cart using ajax
@@ -802,7 +858,7 @@ class Asgard_Woocommerce {
 	public function asgard_woocommerce_output_product_content_and_reviews() {
 
 		woocommerce_product_description_tab();
-
+        do_action('single_product_author_reference');
 		if ( comments_open() || get_comments_number() ) {
 			comments_template();
 		}

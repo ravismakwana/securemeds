@@ -28,7 +28,7 @@
 <!--            </div>-->
 <!--        </div>-->
 <!--    </div>-->
-    <div class="footer-widget bg-primary bg-opacity-75 pt-sm-4 pt-md-0">
+    <div class="footer-widget bg-success pt-sm-4 pt-md-0">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-sm-6 pt-4 pt-md-4 pb-md-4 mb-4 mb-md-0">
@@ -36,14 +36,17 @@
 						<?php dynamic_sidebar( 'footer-1' ); ?>
 					<?php } ?>
                 </div>
-                <div class="col-lg-3 col-sm-6 pt-md-4 pb-md-4 mb-4 mb-md-0">
+                <div class="col-lg-2 col-sm-6 pt-md-4 pb-md-4 mb-4 mb-md-0">
 					<?php dynamic_sidebar( 'footer-2' ); ?>
                 </div>
-                <div class="col-lg-3 col-sm-6  pt-lg-4 pb-md-4 mb-4 mb-md-0">
+                <div class="col-lg-2 col-sm-6  pt-lg-4 pb-md-4 mb-4 mb-md-0">
 					<?php dynamic_sidebar( 'footer-3' ); ?>
                 </div>
-                <div class="col-lg-3 col-sm-6 pt-lg-4 pb-md-4 mb-4 mb-md-0">
+                <div class="col-lg-2 col-sm-6 pt-lg-4 pb-md-4 mb-4 mb-md-0">
 					<?php dynamic_sidebar( 'footer-4' ); ?>
+                </div>
+                <div class="col-lg-3 col-sm-6 pt-lg-4 pb-md-4 mb-4 mb-md-0">
+					<?php dynamic_sidebar( 'footer-5' ); ?>
                 </div>
             </div>
         </div>

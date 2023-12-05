@@ -493,7 +493,7 @@ footer {
 }
 .mens-health-category {
   &::before {
-    background-image: url('https://www.securemedz.com/wp-content/uploads/2023/12/mens-health.svg');
+    background-image: url('https://www.securemedz.com/wp-content/uploads/2023/12/Mens-health.png');
     background-position: right bottom;
     background-repeat: no-repeat;
     position: absolute;
@@ -507,7 +507,7 @@ footer {
 }
 .womens-health-category {
   &::before {
-    background-image: url('https://www.securemedz.com/wp-content/uploads/2023/12/womens-health.svg');
+    background-image: url('https://www.securemedz.com/wp-content/uploads/2023/12/Asthma-copy.png');
     background-position: right bottom;
     background-repeat: no-repeat;
     position: absolute;
@@ -521,7 +521,7 @@ footer {
 }
 .sexual-health-category {
   &::before {
-    background-image: url('https://www.securemedz.com/wp-content/uploads/2023/12/sexual-health.svg');
+    background-image: url('https://www.securemedz.com/wp-content/uploads/2023/12/Eye-Care-copy.png');
     background-position: right bottom;
     background-repeat: no-repeat;
     position: absolute;
@@ -535,7 +535,7 @@ footer {
 }
 .travel-health-category {
   &::before {
-    background-image: url('https://www.securemedz.com/wp-content/uploads/2023/12/travel-health.svg');
+    background-image: url('https://www.securemedz.com/wp-content/uploads/2023/12/Pain-copy.png');
     background-position: right bottom;
     background-repeat: no-repeat;
     position: absolute;
@@ -547,6 +547,95 @@ footer {
     right: 10px;
   }
 }
+.order-process {
+  hr {
+    margin-bottom: -1rem;
+    background-color: #36af77 !important;
+    height: 2px !important;
+    opacity: 1;
+    &::before {
+      display: none !important;
+    }
+  }
+  .heading-main {
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    .heading {
+      margin: 0 0 1.25rem;
+      display: inline-block;
+      background: #fff;
+      padding: 0 0.9375rem;
+      font-size: 1.25rem;
+      text-align: center;
+    }
+  }
+  .middle-blocks-wrap {
+    .middle-block-inner {
+      max-width: 175px;
+      margin: 0 auto;
+    }
+  }
+  .last-green-devider {
+    hr {
+      margin-bottom: -21px;
+    }
+    svg {
+      padding: 5px;
+      background-color: #fff;
+    }
+  }
+}
+.rank-math-list-item {
+  margin-bottom: 5px;
+}
+
+.rank-math-question {
+  margin: 0;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.rank-math-answer {
+  display: none;
+  padding: 10px;
+}
+
+.rank-math-answer.active {
+  display: block;
+}
+
+.rank-math-question::before {
+  content: "+";
+  float: right;
+}
+
+.active.plus-minus-icon::before {
+  content: "-";
+}
+.rank-math-question {
+  position: relative;
+  cursor: pointer;
+  margin: 10px 0 0;
+  background-color: #e7f3f9;
+  font-size: 15px;
+  line-height: 1.4;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.rank-math-answer p {
+  margin-bottom: 0;
+}
+.footer-logo img {
+  filter: brightness(0) invert(1);
+}
+.product_type {
+  th, td {
+    padding: 4px 8px !important;
+    line-height: normal;
+  }
+}
 @media only screen and (min-width: 991px) {
   .border-lg-end {
     border-right: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
@@ -556,6 +645,11 @@ footer {
     .first {
       max-height: 200px;
     }
+  }
+  #ez-toc-container {
+    float: right;
+    margin-left: 10px;
+    width: 33%;
   }
 }
 
@@ -603,6 +697,14 @@ footer {
   }
   .securemedz-heading {
     max-width: 275px;
+  }
+  .order-process {
+    .middle-blocks-wrap {
+      flex-wrap: wrap !important;
+      .middle-block-inner {
+        flex-basis: calc(50% - 8px);
+      }
+    }
   }
 }
 

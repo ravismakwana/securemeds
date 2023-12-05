@@ -514,6 +514,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+jQuery(document).ready(function ($) {
+  $('.rank-math-question').click(function () {
+    $(this).toggleClass('plus-minus-icon');
+    $(this).toggleClass('active').next('.rank-math-answer').slideToggle('fast');
+    if ($(this).hasClass('active')) {
+      $(this).find('.plus-minus-icon').text('-');
+    } else {
+      $(this).find('.plus-minus-icon').text('+');
+    }
+  });
+});
 }();
 /******/ })()
 ;
