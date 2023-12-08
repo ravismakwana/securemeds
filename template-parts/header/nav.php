@@ -22,7 +22,7 @@ global $woocommerce;
                 </svg>
             </a>
 
-            <span class="all-cate-text px-lg-3 px-md-0 pt-0 pb-0 d-none d-sm-none d-md-block"> All Categories </span>
+            <span class="all-cate-text px-lg-3 px-md-0 pt-0 pb-0 d-none d-sm-none d-md-block fs-6"> All Categories </span>
         </div>
         <div class="d-block d-sm-block d-md-none">
 			<?php
@@ -51,7 +51,7 @@ global $woocommerce;
 						if ( ! $has_children ) {
 							?>
                             <li class="nav-item">
-                                <a class="nav-link px-lg-3 px-md-0 nav-link text-decoration-none <?php echo $active; ?>"
+                                <a class="nav-link px-lg-3 px-md-0 nav-link text-decoration-none fs-6 <?php echo $active; ?>"
                                    aria-current="page"
                                    href="<?php echo esc_url( $menu_item->url ); ?>"><?php echo esc_html( $menu_item->title ); ?></a>
                             </li>
@@ -103,7 +103,7 @@ global $woocommerce;
 					if ( class_exists( 'WooCommerce' ) ) {
 						$login_link = wc_get_page_permalink( 'myaccount' );
 						if ( get_option( 'woocommerce_enable_myaccount_registration' ) === 'yes' ) {
-							$register_link = wc_get_page_permalink( 'myaccount' );
+							$register_link = wc_get_page_permalink( 'my-ccount' );
 						}
 					} else {
 						$login_link    = wp_login_url( get_home_url() );
@@ -150,6 +150,10 @@ global $woocommerce;
                     </a>
                     <ul class="dropdown-menu">
                         <?php
+						$register_link = '';
+						if ( get_option( 'woocommerce_enable_myaccount_registration' ) === 'yes' ) {
+							$register_link = wc_get_page_permalink( 'myaccount' );
+						}
                         if ( is_user_logged_in() ) {
 	                        if ( class_exists( 'WooCommerce' ) ) {
 		                        $logout_link = wp_logout_url( get_permalink( wc_get_page_id( 'myaccount' ) ) );
@@ -157,10 +161,11 @@ global $woocommerce;
 		                        $logout_link = wp_logout_url( get_home_url() );
 	                        }
 	                        ?>
+							 <li><a href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>" class="dropdown-item">My account</a></li>
                             <li><a href="<?php echo esc_url( $logout_link ); ?>" class="dropdown-item">Logout</a></li>
 	                        <?php
                         } else {
-	                        $login_link    = wp_login_url( get_home_url() );
+	                        $login_link    = wc_get_page_permalink( 'myaccount' );
 	                        $active_signup = get_site_option( 'registration', 'none' );
 	                        $active_signup = apply_filters( 'wpmu_active_signup', $active_signup );
 	                        if ( $active_signup != 'none' ) {

@@ -56,23 +56,6 @@ do_action('woocommerce_email_customer_details', $order, $sent_to_admin, $plain_t
     Warm Regards,<br/>
     Team securemedz
 </p>
-<div >
-									<h6 style="text-align: center; font-size: 16px; margin-top: 20px; margin-bottom: 20px;">
-<?php _e( 'Download Our Apps', 'woocommerce' ); // phpcs:ignore WordPress.XSS.EscapeOutput ?>
-</h6>
-								</div>
-<div id="email_app_button" style="text-align: center; display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
-								<div class="android_icon">
-									<a href="https://play.google.com/store/apps/details?id=actizameds.arrow.meds.securemedz" target="_blank">
-										<img src="https://www.securemedz.com/wp-content/uploads/2022/07/d11_playstore.webp" alt="Android App" width="120" height="60">
-									</a>
-								</div>
-								<div class="iso_icon">
-									<a href="#">
-										<img src="https://www.securemedz.com/wp-content/uploads/2022/07/d11_appstore.webp" alt="ISO App" width="120" height="60">
-									</a>
-								</div>
-							</div>
 <?php
 /*
  * @hooked WC_Emails::email_footer() Output the email footer

@@ -50,21 +50,6 @@ do_action( 'woocommerce_email_order_meta', $order, $sent_to_admin, $plain_text, 
 do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email );
 
 ?>
-    <div id="email_app_button"
-         style="text-align: left; display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
-        <div>
-            <h6 style="text-align: left; margin-right: 10px; font-size: 16px; margin-top: 0; margin-bottom: 0;">
-				<?php _e( 'Download Apps', 'woocommerce' ); // phpcs:ignore WordPress.XSS.EscapeOutput ?>
-            </h6>
-        </div>
-        <div class="android_icon">
-            <a href="<?php echo home_url(), '/securemedz-app/'; ?>" target="_blank">
-                <img src="<?php echo home_url().'/wp-content/uploads/2023/06/android-app.png'; ?>" alt="Android App"
-                     width="120" height="60">
-            </a>
-        </div>
-
-    </div>
     <p style="text-align: left;">
 		<?php _e( 'Average normal shipping through EMS time is 15- 22 days, please (Delivery may be take up to 30 days from date of dispatch, due to if any disruption in postal services due to weather issue or natural disaster).', 'woocommerce' ); // phpcs:ignore WordPress.XSS.EscapeOutput ?>
     </p>

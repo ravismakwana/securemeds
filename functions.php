@@ -267,4 +267,4 @@ function custom_theme_settings($wp_customize) {
 		'type' => 'text',
 		'settings' => 'custom_link_3',
 	));
-}
+}	

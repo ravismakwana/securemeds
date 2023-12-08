@@ -49,7 +49,7 @@ class Asgard_Woocommerce {
 		add_action( 'woocommerce_after_single_product_summary', [ $this, 'display_variation_in_table_format' ], 5 );
 // 		add_action( 'woocommerce_share', [ $this, 'product_share_single_product_page' ], 10 );
         add_action( 'woocommerce_share', [ $this, 'product_logos_after_meta' ], 10 );
-		add_action( 'woocommerce_after_single_product', [ $this, 'single_product_order_proccess' ], 10 );
+		add_action( 'single_product_author_reference', [ $this, 'single_product_order_proccess' ], 11 );
 		add_action( 'wp_ajax_nopriv_woocommerce_add_variation_to_cart', [
 			$this,
 			'asgard_add_variation_to_cart_ajax'
@@ -562,7 +562,7 @@ class Asgard_Woocommerce {
                                                     data-variation_id="<?php echo abs( $product_variation["variation_id"] ); ?>"
                                                     data-quantity="1" data-variation="<?php echo $attr; ?>">
                                                     <svg class="d-block mx-auto m-0" width="25" height="25"
-                                                         fill="var(--bs-danger)">
+                                                         fill="">
                                                         <use href="#icon-cart"></use>
                                                     </svg>
                                                 </button><?php
@@ -1682,7 +1682,7 @@ class Asgard_Woocommerce {
                 }  ?>
             </div>
 		</div>
-        <div class="product-references mb-3 p-3 border border-secondary border-opacity-50 rounded-4 bg-primary-subtle">
+        <!-- <div class="product-references mb-3 p-3 border border-secondary border-opacity-50 rounded-4 bg-primary-subtle">
 			<div class="flex-shrink-0">
                 <h3 class="mb-2">References</h3>
                 <ul class="m-0">
@@ -1692,7 +1692,7 @@ class Asgard_Woocommerce {
                     <li class="pb-2">A fourth itemDr W. Jones & the Breastfeeding Network, 2021, Contraception and Breastfeeding, accessed 17 May 2022</li>
                 </ul>
             </div>
-		</div>
+		</div> -->
 		<?php
     }
 
